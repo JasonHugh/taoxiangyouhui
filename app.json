@@ -1,0 +1,54 @@
+{
+  "pages":[
+    "pages/wheel/wheel",
+    "pages/index/index",
+    "pages/market/market",
+    "pages/signIn/signIn",
+    "pages/logs/logs"
+  ],
+  "window":{
+    "backgroundColor": "#D8005F",
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#D8005F",
+    "navigationBarTitleText": "淘享优惠",
+    "navigationBarTextStyle":"#fff",
+    "enablePullDownRefresh": true
+  },
+  "tabBar": {
+    "backgroundColor": "#D8005F",
+    "borderStyle": "white",
+    "selectedColor": "#b4282d",
+    "color": "#666",
+    "list": [
+      {
+        "pagePath": "pages/signIn/signIn",
+        "iconPath": "static/images/ic_menu_choice_nor.png",
+        "selectedIconPath": "static/images/ic_menu_choice_pressed.png",
+        "text": "签到"
+      },
+      {
+        "pagePath": "pages/wheel/wheel",
+        "iconPath": "static/images/ic_menu_topic_nor.png",
+        "selectedIconPath": "static/images/ic_menu_topic_pressed.png",
+        "text": "抽奖"
+      },
+      {
+        "pagePath": "pages/market/market",
+        "iconPath": "static/images/ic_menu_shoping_nor.png",
+        "selectedIconPath": "static/images/ic_menu_shoping_pressed.png",
+        "text": "优惠"
+      },
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "static/images/ic_menu_me_nor.png",
+        "selectedIconPath": "static/images/ic_menu_me_pressed.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  },
+  "debug": true
+}

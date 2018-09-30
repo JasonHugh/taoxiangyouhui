@@ -1,0 +1,20 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="userinfo">
+    <!-- <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 微信登陆 </button> -->
+    <!-- <block wx:else> -->
+      <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName||userInfo.username}}</text>
+      <view>
+        <text class="userinfo-gold">我的金币：{{userInfo.gold}}</text>
+        <button class="userinfo-exchange" bindtap="showModal"> 兑换红包 </button>
+      </view>
+      <text class="userinfo-gold">剩余抽奖次数：{{userInfo.wheelTimes}}</text>
+      <button class="userinfo-refresh" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 刷新信息 </button>
+      <button class="share-btn" open-type="share" type="default">
+        <image src='/static/images/icon_share.png'></image>
+        分享,您和朋友将各得到一次抽奖机会
+      </button>
+    <!-- </block> -->
+  </view>
+</view>
