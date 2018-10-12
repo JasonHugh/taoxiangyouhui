@@ -6,18 +6,10 @@ const AV = require('../../utils/av-live-query-weapp-min');
 Page({
     data: {
       mode: 1,
-      awards: [5, 10, 5, 5, 10, 5, 5, 100],
-      userInfo: {}
+      awards: [5, 10, 5, 5, 10, 5, 5, 100]
     },
 
     onLoad () {
-      //获取用户信息
-      app.userInfoReadyCallback = res => {
-        this.setData({
-          userInfo: res.userInfo
-        }),
-        console.log(this.data.userInfo)
-      }
       const self = this
       this.wheel = new Wheel(this, {
           areaNumber: 8,
@@ -36,16 +28,21 @@ Page({
                   if (res.confirm) {
                     //用户加积分
                     var GoldLog = AV.Object.extend('GoldLog');
-                    // 新建一个 Todo 对象
                     var goldLog = new GoldLog();
-                    console.log(this.data.userInfo)
-                    goldLog.set('username', this.data.userInfo.username);
+                    var userInfo = AV.User.current().toJSON();
+                    goldLog.set('username', userInfo.username);
                     goldLog.set('gold', gold);
                     goldLog.set('action', 1);
                     goldLog.set('status', 3);
-                    goldLog.save().then(function (todo) {
+                    goldLog.save().then(function (goldLog) {
                       // 成功保存之后，执行其他逻辑.
                       console.log('New object created with objectId: ' + goldLog.id);
+                      //用户表加积分
+                      var data = { gold: userInfo.gold + gold, wheelTimes: userInfo.wheelTimes - 1 };
+                      AV.User.loginWithWeapp().then(user => {
+                        user.set(data).save();
+                        console.log(user.toJSON());
+                      }).catch(console.error);
                     }, function (error) {
                       // 异常处理
                       console.error('Failed to create new object, with error message: ' + error.message);

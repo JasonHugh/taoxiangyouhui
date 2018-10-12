@@ -7,15 +7,15 @@
     "pages/logs/logs"
   ],
   "window":{
-    "backgroundColor": "#D8005F",
+    "backgroundColor": "#eee",
     "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#D8005F",
+    "navigationBarBackgroundColor": "#f32",
     "navigationBarTitleText": "淘享优惠",
-    "navigationBarTextStyle":"#fff",
+    "navigationBarTextStyle":"#666",
     "enablePullDownRefresh": true
   },
   "tabBar": {
-    "backgroundColor": "#D8005F",
+    "backgroundColor": "#fff",
     "borderStyle": "white",
     "selectedColor": "#b4282d",
     "color": "#666",
@@ -43,6 +43,12 @@
         "iconPath": "static/images/ic_menu_me_nor.png",
         "selectedIconPath": "static/images/ic_menu_me_pressed.png",
         "text": "我的"
+      },
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "static/images/ic_menu_sort_nor.png",
+        "selectedIconPath": "static/images/ic_menu_sort_pressed.png",
+        "text": "帮助"
       }
     ]
   },

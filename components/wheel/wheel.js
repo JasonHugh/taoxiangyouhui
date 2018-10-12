@@ -16,6 +16,7 @@
  *    }
  *  })
  */
+const AV = require('../../utils/av-live-query-weapp-min');
 class Wheel {
     /**
    * @constructs Wheel构造函数
@@ -59,6 +60,20 @@ class Wheel {
     }
 
     start () {
+      if (AV.User.current().toJSON().wheelTimes < 1){
+        wx.showModal({
+          content: '转盘次数已用完，分享朋友或领优惠券获取转盘机会',
+          showCancel: false,
+          cancelText: '',
+          cancelColor: '',
+          confirmText: '关闭',
+          confirmColor: '',
+          success: function (res) { },
+          fail: function (res) { },
+          complete: function (res) { },
+        })
+        return
+      }
         let { deg, awardNumer, singleAngle, speed, isStart, mode } = this
         if (isStart) return
         this.isStart = true

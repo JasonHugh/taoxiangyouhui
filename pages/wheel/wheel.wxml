@@ -10,7 +10,7 @@
   </view>   
 
   <template is = "wheel" data="{{...wheel}}"></template> 
-  <view class="index-tip">tip: 点击开始抽奖</view>  
+  <view class="index-tip">tip: 点击开始抽奖</view>
 
 
 </view>
